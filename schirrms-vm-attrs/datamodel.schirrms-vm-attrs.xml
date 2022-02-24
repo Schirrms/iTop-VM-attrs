@@ -114,6 +114,11 @@
 					<is_null_allowed>true</is_null_allowed>
 					<target>_blank</target>
  				</field>
+				<field id="istemplate" xsi:type="AttributeBoolean" _delta="define">
+					<sql>istemplate</sql>
+					<default_value></default_value>
+					<is_null_allowed>true</is_null_allowed>
+ 				</field>
 			</fields>
 			<presentation>
 				<details>
@@ -127,6 +132,9 @@
 										</item>
 										<item id="vcenter" _delta="define">
 											<rank>48</rank>
+										</item>
+										<item id="istemplate" _delta="define">
+											<rank>54</rank>
 										</item>
 									</items>
 								</item>
