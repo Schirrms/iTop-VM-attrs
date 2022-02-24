@@ -29,7 +29,6 @@ Dict::Add('FR FR', 'French', 'Français', array(
 	'Class:VirtualMachine/Attribute:power_status' => 'Etat alimentation VM',
 	'Class:VirtualMachine/Attribute:vcenter' => 'VCenter',
 	'Class:VirtualMachine/Attribute:istemplate' => 'Cette VM est un template ?',
-	'Class:VirtualMachine/Attribute:istemplate+' => 'Attention : les seules valeurs acceptées pour ce champ sont 0 et 1',
 	'Class:VirtualMachine/Attribute:istemplate/value;0' => 'Non',
 	'Class:VirtualMachine/Attribute:istemplate/value:1' => 'Oui',
 	'Class:lnkVirtualDeviceToVolume/Attribute:virtual_volume_name' => 'Nom dans le système virtuel', 

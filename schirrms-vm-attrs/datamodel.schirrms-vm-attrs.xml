@@ -114,7 +114,11 @@
 					<is_null_allowed>true</is_null_allowed>
 					<target>_blank</target>
  				</field>
-				<field id="istemplate" xsi:type="AttributeBoolean" _delta="define">
+				<field id="istemplate" xsi:type="AttributeEnum" _delta="define">
+					<values>
+						<value id="0">0</value>
+						<value id="1">1</value>
+					</values>
 					<sql>istemplate</sql>
 					<default_value>0</default_value>
 					<is_null_allowed>true</is_null_allowed>

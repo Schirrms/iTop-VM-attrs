@@ -29,7 +29,6 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:VirtualMachine/Attribute:power_status' => 'VM power state',
 	'Class:VirtualMachine/Attribute:vcenter' => 'VCenter',
 	'Class:VirtualMachine/Attribute:istemplate' => 'Is this VM a template ?',
-	'Class:VirtualMachine/Attribute:istemplate+' => 'Warning : only allowed values are 0 or 1 for this field',
 	'Class:VirtualMachine/Attribute:istemplate/value;0' => 'No',
 	'Class:VirtualMachine/Attribute:istemplate/value:1' => 'Yes',
 	'Class:lnkVirtualDeviceToVolume/Attribute:virtual_volume_name' => 'Name in the virtual system', 
