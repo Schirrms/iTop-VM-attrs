@@ -215,9 +215,6 @@
 						<item id="S_FUNCTION" _delta="define">
 							<rank>30</rank>
 						</item>
-						<item id="S_CREATOR" _delta="define">
-							<rank>40</rank>
-						</item>
 						<item id="S_Contact_1" _delta="define">
 							<rank>50</rank>
 						</item>
@@ -232,9 +229,6 @@
 						</item>
 						<item id="S_OS_Distributor" _delta="define">
 							<rank>140</rank>
-						</item>
-						<item id="netbackup_version" _delta="define">
-							<rank>150</rank>
 						</item>
 					</items>
 				</search>
@@ -243,26 +237,14 @@
 						<item id="S_FUNCTION" _delta="define">
 							<rank>30</rank>
 						</item>
-						<item id="S_CREATOR" _delta="define">
-							<rank>40</rank>
-						</item>
 						<item id="S_Contact_1" _delta="define">
 							<rank>50</rank>
 						</item>
 						<item id="S_Contact_2" _delta="define">
 							<rank>55</rank>
 						</item>
-						<item id="S_EndOfLife" _delta="define">
-							<rank>80</rank>
-						</item>
-						<item id="S_OS_Version" _delta="define">
-							<rank>120</rank>
-						</item>
-						<item id="S_OS_Distributor" _delta="define">
-							<rank>140</rank>
-						</item>
-						<item id="netbackup_version" _delta="define">
-							<rank>150</rank>
+						<item id="istemplate" _delta="define">
+							<rank>88</rank>
 						</item>
 					</items>
 				</list>
