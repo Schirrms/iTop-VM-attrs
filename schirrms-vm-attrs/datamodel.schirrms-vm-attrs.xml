@@ -144,7 +144,7 @@
 								</item>
 								<item id="fieldset:Server:moreinfo">
 									<items>
-										<item id="managementip_name">
+										<item id="managementip_name" _delta="define">
 											<rank>26</rank>
 										</item>
 									</items>
