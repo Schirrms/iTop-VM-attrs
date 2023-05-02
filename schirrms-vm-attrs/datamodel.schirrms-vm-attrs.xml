@@ -142,6 +142,13 @@
 										</item>
 									</items>
 								</item>
+								<item id="fieldset:Server:moreinfo">
+									<items>
+										<item id="managementip_name">
+											<rank>26</rank>
+										</item>
+									</items>
+								</item>
 							</items>
 						</item>
 						<item id="col:col2">
