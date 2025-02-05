@@ -282,6 +282,14 @@
 				</list>	
 			</presentation>
 		</class>
+		<class id="LogicalInterface" _delta="must_exist">
+			<fields>
+				<field id="virtualmachine_host_id" xsi:type="AttributeExternalField" _delta="define">
+					<extkey_attcode>virtualmachine_id</extkey_attcode>
+					<target_attcode>virtualhost_id</target_attcode>
+				</field>
+			</fields>
+		</class>
 	</classes>
 	<user_rights>
 		<groups>
