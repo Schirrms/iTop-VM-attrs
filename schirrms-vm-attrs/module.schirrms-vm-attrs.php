@@ -5,7 +5,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'schirrms-vm-attrs/1.3.1',
+	'schirrms-vm-attrs/1.4.0',
 	array(
 		// Identification
 		//
@@ -15,10 +15,10 @@ SetupWebPage::AddModule(
 		// Setup
 		//
 		'dependencies' => array(
-			'itop-virtualization-mgmt/2.7.0',
-			'itop-config-mgmt/2.7.0',
-			'itop-bridge-virtualization-storage/2.7.0',
-			'teemip-network-mgmt/3.0.1',
+			'itop-virtualization-mgmt/3.2.0',
+			'itop-config-mgmt/3.2.0',
+			'itop-bridge-virtualization-storage/3.2.0',
+			'teemip-network-mgmt/3.2.0',
 		),
 		'mandatory' => false,
 		'visible' => true,

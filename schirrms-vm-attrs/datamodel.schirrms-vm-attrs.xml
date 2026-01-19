@@ -1,300 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.5">
-	<constants>
-	</constants>
-	<classes>
-		<class id="VirtualMachine" _delta="must_exist">
-			<fields>
-				<field id="location_id" xsi:type="AttributeExternalKey" _delta="define">
-					<filter><![CDATA[SELECT l FROM Location AS l JOIN Organization AS root ON l.org_id=root.id JOIN Organization AS child ON child.parent_id BELOW root.id WHERE child.id= :this->org_id]]></filter>
-					<dependencies>
-						<attribute id="org_id"/>
-					</dependencies>
-					<sql>location_id</sql>
-					<target_class>Location</target_class>
-					<is_null_allowed>true</is_null_allowed>
-					<on_target_delete>DEL_MANUAL</on_target_delete>
-					<allow_target_creation>false</allow_target_creation>
-				</field>
-				<field id="location_name" xsi:type="AttributeExternalField" _delta="define">
-					<extkey_attcode>location_id</extkey_attcode>
-					<target_attcode>name</target_attcode>
-				</field>
-				<field id="S_UUID" xsi:type="AttributeString" _delta="define">
-					<sql>S_UUID</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_FUNCTION" xsi:type="AttributeString" _delta="define">
-					<sql>S_FUNCTION</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_CREATOR" xsi:type="AttributeString" _delta="define">
-					<sql>S_CREATOR</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_Contact_1" xsi:type="AttributeString" _delta="define">
-					<sql>S_Contact_1</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_Contact_2" xsi:type="AttributeString" _delta="define">
-					<sql>S_Contact_2</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_EndOfLife" xsi:type="AttributeDate" _delta="define">
-					<sql>S_EndOfLife</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_Usage" xsi:type="AttributeString" _delta="define">
-					<sql>S_Usage</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_Comment" xsi:type="AttributeString" _delta="define">
-					<sql>S_Comment</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_Template" xsi:type="AttributeString" _delta="define">
-					<sql>S_Template</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_Project" xsi:type="AttributeString" _delta="define">
-					<sql>S_Project</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_Backup" xsi:type="AttributeString" _delta="define">
-					<sql>S_Backup</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_LastBootDate" xsi:type="AttributeDate" _delta="define">
-					<sql>S_LastBootDate</sql>
-					<tracking_level _delta="force">none</tracking_level>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_CurrentHypervisor" xsi:type="AttributeString" _delta="define">
-					<sql>S_CurrentHypervisor</sql>
-					<tracking_level _delta="force">none</tracking_level>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_OS_Version" xsi:type="AttributeString" _delta="define">
-					<sql>S_OS_Version</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="S_OS_Distributor" xsi:type="AttributeString" _delta="define">
-					<sql>S_OS_Distributor</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="netbackup_version" xsi:type="AttributeString" _delta="define">
-					<sql>netbackup_version</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="power_status" xsi:type="AttributeString" _delta="define">
-					<sql>power_status</sql>
-					<tracking_level _delta="force">none</tracking_level>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-				<field id="vcenter" xsi:type="AttributeURL" _delta="define">
-					<sql>vcenter</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-					<target>_blank</target>
- 				</field>
-				<field id="istemplate" xsi:type="AttributeEnum" _delta="define">
-					<values>
-						<value id="0">0</value>
-						<value id="1">1</value>
-					</values>
-					<sql>istemplate</sql>
-					<default_value>0</default_value>
-					<is_null_allowed>true</is_null_allowed>
- 				</field>
-			</fields>
-			<presentation>
-				<details>
-					<items>
-						<item id="col:col1">
-							<items>
-								<item id="fieldset:Server:baseinfo">
-									<items>
-										<item id="location_id" _delta="define">
-											<rank>45</rank>
-										</item>
-										<item id="vcenter" _delta="define">
-											<rank>48</rank>
-										</item>
-										<item id="istemplate" _delta="define">
-											<rank>54</rank>
-										</item>
-									</items>
-								</item>
-								<item id="fieldset:Server:moreinfo">
-									<items>
-										<item id="managementip_name" _delta="define">
-											<rank>26</rank>
-										</item>
-									</items>
-								</item>
-							</items>
-						</item>
-						<item id="col:col2">
-							<items>
-								<item id="fieldset:Server:otherinfo">
-									<items>
-										<item id="S_UUID" _delta="define">
-											<rank>25</rank>
-										</item>
-										<item id="S_Project" _delta="define">
-											<rank>30</rank>
-										</item>
-										<item id="S_FUNCTION" _delta="define">
-											<rank>35</rank>
-										</item>
-										<item id="S_Usage" _delta="define">
-											<rank>40</rank>
-										</item>
-										<item id="S_Comment" _delta="define">
-											<rank>45</rank>
-										</item>
-										<item id="S_Contact_1" _delta="define">
-											<rank>50</rank>
-										</item>
-										<item id="S_Contact_2" _delta="define">
-											<rank>55</rank>
-										</item>
-										<item id="S_EndOfLife" _delta="define">
-											<rank>60</rank>
-										</item>
-										<item id="S_CREATOR" _delta="define">
-											<rank>80</rank>
-										</item>
-										<item id="S_Template" _delta="define">
-											<rank>85</rank>
-										</item>
-										<item id="S_Backup" _delta="define">
-											<rank>90</rank>
-										</item>
-										<item id="S_OS_Version" _delta="define">
-											<rank>120</rank>
-										</item>
-										<item id="S_OS_Distributor" _delta="define">
-											<rank>140</rank>
-										</item>
-										<item id="netbackup_version" _delta="define">
-											<rank>150</rank>
-										</item>
-									</items>
-								</item>
-								<item id="fieldset:Server:Operational">
-									<rank>50</rank>
-									<items>
-										<item id="S_LastBootDate" _delta="define">
-											<rank>10</rank>
-										</item>
-										<item id="S_CurrentHypervisor" _delta="define">
-											<rank>20</rank>
-										</item>
-										<item id="power_status" _delta="define">
-											<rank>30</rank>
-										</item>
-									</items>
-								</item>
-							</items>
-						</item>
-					</items>
-				</details>
-				<search>
-					<items>
-						<item id="S_FUNCTION" _delta="define">
-							<rank>30</rank>
-						</item>
-						<item id="S_Contact_1" _delta="define">
-							<rank>50</rank>
-						</item>
-						<item id="S_Contact_2" _delta="define">
-							<rank>55</rank>
-						</item>
-						<item id="S_EndOfLife" _delta="define">
-							<rank>80</rank>
-						</item>
-						<item id="S_OS_Version" _delta="define">
-							<rank>120</rank>
-						</item>
-						<item id="S_OS_Distributor" _delta="define">
-							<rank>140</rank>
-						</item>
-					</items>
-				</search>
-				<list>
-					<items>
-						<item id="S_FUNCTION" _delta="define">
-							<rank>30</rank>
-						</item>
-						<item id="S_Contact_1" _delta="define">
-							<rank>50</rank>
-						</item>
-						<item id="S_Contact_2" _delta="define">
-							<rank>55</rank>
-						</item>
-						<item id="istemplate" _delta="define">
-							<rank>88</rank>
-						</item>
-					</items>
-				</list>
-			</presentation>
-		</class>
-		<class id="lnkVirtualDeviceToVolume" _delta="must_exist">
-			<fields>
-				<field id="virtual_volume_name" xsi:type="AttributeString" _delta="define">
-					<sql>virtual_volume_name</sql>
-					<default_value></default_value>
-					<is_null_allowed>true</is_null_allowed>
-				</field>
-			</fields>
-			<presentation>
-				<details>
-					<items>
-						<item id="virtual_volume_name" _delta="define">
-							<rank>40</rank>
-						</item>
-					</items>
-				</details>
-				<list>
-					<items>
-						<item id="virtual_volume_name" _delta="define">
-							<rank>40</rank>
-						</item>
-					</items>
-				</list>	
-			</presentation>
-		</class>
-		<class id="LogicalInterface" _delta="must_exist">
-			<fields>
-				<field id="virtualmachine_host_id" xsi:type="AttributeExternalField" _delta="define">
-					<extkey_attcode>virtualmachine_id</extkey_attcode>
-					<target_attcode>virtualhost_id</target_attcode>
-				</field>
-			</fields>
-		</class>
-	</classes>
-	<user_rights>
-		<groups>
-		</groups>
-		<profiles>
-		</profiles>
-	</user_rights>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0">
+  <constants>
+  </constants>
+  <classes>
+    <class id="VirtualMachine" _delta="must_exist">
+      <fields>
+        <field id="location_id" xsi:type="AttributeExternalKey" _delta="define">
+          <filter><![CDATA[SELECT l FROM Location AS l JOIN Organization AS root ON l.org_id=root.id JOIN Organization AS child ON child.parent_id BELOW root.id WHERE child.id= :this->org_id]]></filter>
+          <dependencies>
+            <attribute id="org_id"/>
+          </dependencies>
+          <sql>location_id</sql>
+          <target_class>Location</target_class>
+          <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+          <allow_target_creation>false</allow_target_creation>
+        </field>
+        <field id="location_name" xsi:type="AttributeExternalField" _delta="define">
+          <extkey_attcode>location_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="S_UUID" xsi:type="AttributeString" _delta="define">
+          <sql>S_UUID</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_FUNCTION" xsi:type="AttributeString" _delta="define">
+          <sql>S_FUNCTION</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_CREATOR" xsi:type="AttributeString" _delta="define">
+          <sql>S_CREATOR</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_Contact_1" xsi:type="AttributeString" _delta="define">
+          <sql>S_Contact_1</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_Contact_2" xsi:type="AttributeString" _delta="define">
+          <sql>S_Contact_2</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_EndOfLife" xsi:type="AttributeDate" _delta="define">
+          <sql>S_EndOfLife</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_Usage" xsi:type="AttributeString" _delta="define">
+          <sql>S_Usage</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_Comment" xsi:type="AttributeString" _delta="define">
+          <sql>S_Comment</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_Template" xsi:type="AttributeString" _delta="define">
+          <sql>S_Template</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_Project" xsi:type="AttributeString" _delta="define">
+          <sql>S_Project</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_Backup" xsi:type="AttributeString" _delta="define">
+          <sql>S_Backup</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_LastBootDate" xsi:type="AttributeDate" _delta="define">
+          <sql>S_LastBootDate</sql>
+          <tracking_level _delta="force">none</tracking_level>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_CurrentHypervisor" xsi:type="AttributeString" _delta="define">
+          <sql>S_CurrentHypervisor</sql>
+          <tracking_level _delta="force">none</tracking_level>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_OS_Version" xsi:type="AttributeString" _delta="define">
+          <sql>S_OS_Version</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="S_OS_Distributor" xsi:type="AttributeString" _delta="define">
+          <sql>S_OS_Distributor</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="netbackup_version" xsi:type="AttributeString" _delta="define">
+          <sql>netbackup_version</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="power_status" xsi:type="AttributeString" _delta="define">
+          <sql>power_status</sql>
+          <tracking_level _delta="force">none</tracking_level>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="vcenter" xsi:type="AttributeURL" _delta="define">
+          <sql>vcenter</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+          <target>_blank</target>
+         </field>
+        <field id="istemplate" xsi:type="AttributeEnum" _delta="define">
+          <values>
+            <value id="0">
+                            <code>0</code>
+                        </value>
+            <value id="1">
+                            <code>1</code>
+                        </value>
+          </values>
+          <sql>istemplate</sql>
+          <default_value>0</default_value>
+          <is_null_allowed>true</is_null_allowed>
+         </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col1">
+              <items>
+                <item id="fieldset:Server:baseinfo">
+                  <items>
+                    <item id="location_id" _delta="define">
+                      <rank>45</rank>
+                    </item>
+                    <item id="vcenter" _delta="define">
+                      <rank>48</rank>
+                    </item>
+                    <item id="istemplate" _delta="define">
+                      <rank>54</rank>
+                    </item>
+                  </items>
+                </item>
+                <item id="fieldset:Server:moreinfo">
+                  <items>
+                    <item id="managementip_name" _delta="define">
+                      <rank>26</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+            <item id="col:col2">
+              <items>
+                <item id="fieldset:Server:otherinfo">
+                  <items>
+                    <item id="S_UUID" _delta="define">
+                      <rank>25</rank>
+                    </item>
+                    <item id="S_Project" _delta="define">
+                      <rank>30</rank>
+                    </item>
+                    <item id="S_FUNCTION" _delta="define">
+                      <rank>35</rank>
+                    </item>
+                    <item id="S_Usage" _delta="define">
+                      <rank>40</rank>
+                    </item>
+                    <item id="S_Comment" _delta="define">
+                      <rank>45</rank>
+                    </item>
+                    <item id="S_Contact_1" _delta="define">
+                      <rank>50</rank>
+                    </item>
+                    <item id="S_Contact_2" _delta="define">
+                      <rank>55</rank>
+                    </item>
+                    <item id="S_EndOfLife" _delta="define">
+                      <rank>60</rank>
+                    </item>
+                    <item id="S_CREATOR" _delta="define">
+                      <rank>80</rank>
+                    </item>
+                    <item id="S_Template" _delta="define">
+                      <rank>85</rank>
+                    </item>
+                    <item id="S_Backup" _delta="define">
+                      <rank>90</rank>
+                    </item>
+                    <item id="S_OS_Version" _delta="define">
+                      <rank>120</rank>
+                    </item>
+                    <item id="S_OS_Distributor" _delta="define">
+                      <rank>140</rank>
+                    </item>
+                    <item id="netbackup_version" _delta="define">
+                      <rank>150</rank>
+                    </item>
+                  </items>
+                </item>
+                <item id="fieldset:Server:Operational">
+                  <rank>50</rank>
+                  <items>
+                    <item id="S_LastBootDate" _delta="define">
+                      <rank>10</rank>
+                    </item>
+                    <item id="S_CurrentHypervisor" _delta="define">
+                      <rank>20</rank>
+                    </item>
+                    <item id="power_status" _delta="define">
+                      <rank>30</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+        <search>
+          <items>
+            <item id="S_FUNCTION" _delta="define">
+              <rank>30</rank>
+            </item>
+            <item id="S_Contact_1" _delta="define">
+              <rank>50</rank>
+            </item>
+            <item id="S_Contact_2" _delta="define">
+              <rank>55</rank>
+            </item>
+            <item id="S_EndOfLife" _delta="define">
+              <rank>80</rank>
+            </item>
+            <item id="S_OS_Version" _delta="define">
+              <rank>120</rank>
+            </item>
+            <item id="S_OS_Distributor" _delta="define">
+              <rank>140</rank>
+            </item>
+          </items>
+        </search>
+        <list>
+          <items>
+            <item id="S_FUNCTION" _delta="define">
+              <rank>30</rank>
+            </item>
+            <item id="S_Contact_1" _delta="define">
+              <rank>50</rank>
+            </item>
+            <item id="S_Contact_2" _delta="define">
+              <rank>55</rank>
+            </item>
+            <item id="istemplate" _delta="define">
+              <rank>88</rank>
+            </item>
+          </items>
+        </list>
+      </presentation>
+    </class>
+    <class id="lnkVirtualDeviceToVolume" _delta="must_exist">
+      <fields>
+        <field id="virtual_volume_name" xsi:type="AttributeString" _delta="define">
+          <sql>virtual_volume_name</sql>
+          <default_value></default_value>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="virtual_volume_name" _delta="define">
+              <rank>40</rank>
+            </item>
+          </items>
+        </details>
+        <list>
+          <items>
+            <item id="virtual_volume_name" _delta="define">
+              <rank>40</rank>
+            </item>
+          </items>
+        </list>
+      </presentation>
+    </class>
+    <class id="LogicalInterface" _delta="must_exist">
+      <fields>
+        <field id="virtualmachine_host_id" xsi:type="AttributeExternalField" _delta="define">
+          <extkey_attcode>virtualmachine_id</extkey_attcode>
+          <target_attcode>virtualhost_id</target_attcode>
+        </field>
+      </fields>
+    </class>
+  </classes>
+  <user_rights>
+    <groups>
+    </groups>
+    <profiles>
+    </profiles>
+  </user_rights>
 </itop_design>
